@@ -1,9 +1,8 @@
 import math
 
-""" Darren Fulton
-My integration project is themed around an old game on a series I played
-years ago, but started playing recently
-"""
+# Darren Fulton
+# My integration project is themed around an old game on a series I played
+# years ago, but started playing recently
 
 print("Hello! Welcome to my integration project.")
 
@@ -125,25 +124,26 @@ if added_strength != 0 and added_strength > 0:
 
     # Added a print statement to make use of the ** operator,
     # which is raises the variable to the power of an integer, 10 in this case
+    # while loop that runs as long as it is true
     while True:
         # Made use of the NOT operator
         if not added_strength ** 2 == 2147483647:
-            # 2147483647 is the biggest integer
-            
+            # 2147483647 is the biggest integer in
+            # 32-bit systems
             print("And with the help of RNG, imagine getting",
                   added_strength ** 2,
                   "of additional strength! \n")
+            # The break keyword stops the loop from going
+            # infinitely
             break
         else:
             break
-
 
 # Utilized elif for the additional if statement,
 # so it can use another expression to evaluate
 
 # Added the OR operator
 elif added_strength == 0 or added_strength < 0:
-    # to be make the condition to become false, or not be greater than zero
     print("It would be great if you didn't have terrible luck. \n")
 
 print(
