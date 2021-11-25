@@ -1,6 +1,11 @@
+"""
+Imports the math module
+"""
+
 import math
 
-# Darren Fulton
+__author__ = "Darren Fulton"
+
 # My integration project is themed around an old game on a series I played
 # years ago, but started playing recently
 
@@ -18,34 +23,55 @@ print("And don't worry!", end=' ')
 
 print("You can just google the elements regarding the game.")
 
-num1 = int(input(
-    "A question! What is the best way to making money in this game?"
-    " \n 1)Fishing \n or \n 2)Dungeon crawling "))
+print("\nA question! What is the best way to making money in this game?")
+
+# Created a list with the use of brackets
+
+questions = ["Fishing", "Dungeon crawling"]
+
+# Uses the len function to use the number of items
+# in the list as a value
+# And the range function simply
+
+for questionNum in range(len(questions)):
+    # Places the
+    print(
+        str(questionNum + 1) + ".", questions[questionNum])
+
+while True:
+    # Placed a try-except statement since human error is expected
+    try:
+        num1 = int(input())
+        break
+    except ValueError:
+        print("You intentionally didn't type a number. Try again.")
 
 # To make it easy to provide a response,
 # the user has to input that one correct integer as the answer
 
-# In other words,
-# I used if statements to place different responses instead a score system,
-# since I do not have the experience for that
-
-# I used the "Python Booleans" section on w3schools
-
 # Used the == operator to ensure the correct answer is the exact integer
-if num1 == 1:
+# Used the % operator to dictate if the number was odd
+if num1 % 2 == 1 and num1 == 1:
     print(
         "Correct! The developers not only allowed the player to get fish,"
         "but to also get rare loot, or even joke items.")
 else:
-    print("\n Terrible choice.... \n")
+    print("\n Wrong answer... \n")
 
 print(
     "Another thing to note, the game loves the idea of the boss"
     " being randomized for each game session.")
 
 num2 = input("For example, type a wacky name: ")
+
 num3 = input("Type a weird title (do not use 'the'): ")
-num4 = int(input("Lastly, type in a number between 40 and 52: "))
+
+while True:
+    try:
+        num4 = int(input("Lastly, type in a number between 40 and 52: "))
+        break
+    except ValueError:
+        print("NOT. A. NUMBER. Retry.")
 
 # Used the if statement to only have the integer be between 40 and 52
 
@@ -115,7 +141,7 @@ print("The weapon ends giving the player a total of:")
 
 print(added_strength + 25, "strength", sep='~ ')
 
-if added_strength != 0 and added_strength > 0:
+if 0 < added_strength != 0:
     # The != statement is not equal to,
     # so the value cannot be exactly zero
     print("Your strength could have been", 25 - added_strength,
