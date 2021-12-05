@@ -2,6 +2,8 @@
 I played years ago, but started playing recently again """
 __author__ = "Darren Fulton"
 
+import math
+
 
 def main():
     """ Starting menu where the user picks a choice """
@@ -75,11 +77,9 @@ def strength(percentage_strength, flat_strength):
     #  someone who used to modify the game,
     # @ https://web.archive.org/web/20111204005055/http://www.surdin.net
     # /fate_tutorials/formulae-of-fate.html
-    strength_num = int(
-        (1 + (int(percentage_strength) / 100) * 25 + int(flat_strength)) // 1)
-    # The // operator was used to have the result only display
-    # the whole number, basically rounding down like math.floor
-    # and used int() to ensure it is an integer and not a float
+    strength_num = math.ceil((1 + (int(percentage_strength) / 100)) * 25 + int(
+            flat_strength))
+    # The math.ceil method is to make sure the value is rounded up
 
     # The 25 represents the character base strength stat and x and y
     # being the different possible bonuses from items, which stacks
@@ -207,7 +207,9 @@ def stat_bonuses():
     # The != statement is not equal to,
     # so the value cannot be exactly zero
     if 0 < added_strength != 0:
-        print("Your strength could have been", 25 - added_strength,
+        # Used the // operator does floor division
+        # It simply rounds the value that results from the division
+        print("Your strength could have been", int(25 // 4) - added_strength,
               "instead if they were penalties,")
         print("or negative bonuses.")
         # Added a print statement to make use of the ** operator,
@@ -229,8 +231,7 @@ def stat_bonuses():
     # Utilized elif for the additional if statement
     # Added the OR operator
     elif added_strength == 0 or added_strength < 0:
-        print("It would be great if you didn't have terrible luck.\n"
-              "Your additional strength")
+        print("It would be great if you didn't have terrible luck.\n")
     print(
         "Keep in mind that a base stat in Fate "
         "is merely the attribute without bonuses, "
